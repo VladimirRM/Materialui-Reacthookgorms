@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useForm,Controller,SubmitHandler, useFormState} from "react-hook-form"
+import { loginValidation } from './validation';
 
 interface ISignInForm{
   login: string;
@@ -52,7 +53,7 @@ interface ISignInForm{
       <Controller
       control={control}
       name='password'
-      rules={{required:"Обязательно для заполнения"}}
+      rules={loginValidation}
 
       render={({field})=>(
         <TextField
