@@ -3,8 +3,21 @@ import "./auth-form.css"
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import {useForm,Controller,SubmitHandler, useFormState} from "react-hook-form"
+
+interface ISignInForm{
+  login: string;
+  password:string
+}
 
  export const AuthForm = () => {
+    const {handleSubmit, control } = useForm<ISignInForm>()
+
+    const onSubmit: SubmitHandler<ISignInForm> = (data) => console.log(data);
+
+    const {errors}= useFormState({
+      control
+    })
   return (
     <div className='auth-form'>
            <Typography variant="h4" component='div' >
@@ -13,30 +26,48 @@ import Button from '@mui/material/Button';
            <Typography variant="subtitle1" component='div' gutterBottom={true} className='auth-form__subtitle1' >
             чтобы получить доступ
       </Typography>
-      <form className='auth-form__form ' onSubmit={()=> null}
-      
-      >
-      <TextField
-          required
+      <form className='auth-form__form ' onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+      control={control}
+      name='login'
+      rules={{required:true}}
 
-          label="Login"
-          size='small'
-          margin='normal'
-          className='auth-form__input'
-          fullWidth={true}
+      render={({field})=>(
+        <TextField
+        required
 
-        />
-      <TextField
-          required
+        label="Login"
+        size='small'
+        margin='normal'
+        className='auth-form__input'
+        fullWidth={true}
+        onChange={(e)=>field.onChange(e)}
+        value={field.value}
+        error={!!errors.login?.message}
+        helperText={errors.login?.message}
 
-          label="Parol"
-          type="password"
-          size='small'
-          margin='normal'
-          className='auth-form__input'
-          fullWidth={true}
+      />
+      )}
+      />
+      <Controller
+      control={control}
+      name='password'
+      render={({field})=>(
+        <TextField
+        required
 
-        />
+        label="Parol"
+        size='small'
+        margin='normal'
+        className='auth-form__input'
+        fullWidth={true}
+        onChange={(e)=>field.onChange(e)}
+        value={field.value}
+
+      />
+      )}
+      />
+     
         <Button type='submit'
         variant='contained'
         fullWidth={true}
