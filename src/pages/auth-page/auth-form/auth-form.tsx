@@ -2,6 +2,7 @@ import React from 'react'
 import "./auth-form.css"
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
  export const AuthForm = () => {
   return (
@@ -23,6 +24,20 @@ import TextField from '@mui/material/TextField';
           fullWidth={true}
 
         />
+      <TextField
+          required
+
+          label="Parol"
+          type="password"
+          size='small'
+          margin='normal'
+          className='auth-form__input'
+          fullWidth={true}
+
+        />
+        <Button>
+            Enter
+        </Button>
       </form>
     </div>
   )
