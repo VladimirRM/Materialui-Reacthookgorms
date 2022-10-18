@@ -13,7 +13,9 @@ import Button from '@mui/material/Button';
            <Typography variant="subtitle1" component='div' gutterBottom={true} className='auth-form__subtitle1' >
             чтобы получить доступ
       </Typography>
-      <form>
+      <form className='auth-form__form ' onSubmit={()=> null}
+      
+      >
       <TextField
           required
 
@@ -35,7 +37,14 @@ import Button from '@mui/material/Button';
           fullWidth={true}
 
         />
-        <Button>
+        <Button type='submit'
+        variant='contained'
+        fullWidth={true}
+        disableElevation={true}
+        sx={{
+           marginTop: 2
+        }}
+        >
             Enter
         </Button>
       </form>
