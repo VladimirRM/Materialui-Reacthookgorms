@@ -6,7 +6,10 @@ import Typography from '@mui/material/Typography';
   return (
     <div className='auth-form'>
            <Typography variant="h4" component='div' >
-        h1. Heading
+            Войдите
+      </Typography>
+           <Typography variant="subtitle1" component='div' gutterBottom={true} className='auth-form__subtitle1' >
+            чтобы получить доступ
       </Typography>
     </div>
   )
