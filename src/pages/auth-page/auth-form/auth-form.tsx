@@ -15,9 +15,13 @@ import TextField from '@mui/material/TextField';
       <form>
       <TextField
           required
-          id="outlined-required"
-          label="Required"
-          defaultValue="Hello World"
+
+          label="Login"
+          size='small'
+          margin='normal'
+          className='auth-form__input'
+          fullWidth={true}
+
         />
       </form>
     </div>
