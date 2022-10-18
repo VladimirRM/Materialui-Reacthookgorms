@@ -30,7 +30,7 @@ interface ISignInForm{
       <Controller
       control={control}
       name='login'
-      rules={{required:true}}
+      rules={{required:"Обязательно для заполнения"}}
 
       render={({field})=>(
         <TextField
@@ -52,6 +52,8 @@ interface ISignInForm{
       <Controller
       control={control}
       name='password'
+      rules={{required:"Обязательно для заполнения"}}
+
       render={({field})=>(
         <TextField
         required
@@ -63,6 +65,8 @@ interface ISignInForm{
         fullWidth={true}
         onChange={(e)=>field.onChange(e)}
         value={field.value}
+        error={!!errors.password?.message}
+        helperText={errors.password?.message}
 
       />
       )}
