@@ -1,3 +1,5 @@
 .auth-page {
-    
+  height: 100vh;
+  background: no-repeat
+    url("../../../image/pexels-eberhard-grossgasteiger-518485.jpeg");
 }
